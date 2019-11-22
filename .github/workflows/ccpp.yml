@@ -12,6 +12,7 @@ jobs:
     - uses: actions/checkout@v1
     - name: install dependencies
       run: (sudo apt-get update && sudo apt-get install libboost-date-time-dev ninja-build cmake build-essential g++-9)
+    - uses: Trass3r/setup-cpp@master
     - name: make build dir
       run: mkdir build
     - name: configure
@@ -32,6 +33,7 @@ jobs:
       run: mkdir build
     - name: configure
       run: (cd build && cmake .. -G Ninja -DRX_TEST=ON -DCMAKE_BUILD_TYPE=Debug -DCMAKE_CXX_COMPILER=/usr/bin/clang++-8)
+    - uses: Trass3r/setup-cpp@master
     - name: build
       run: ninja -C build
     - name: run tests
@@ -62,6 +64,7 @@ jobs:
       run: '& "$Env:VCPKG_INSTALLATION_ROOT/vcpkg.exe" install boost-date-time:x64-windows'
     - name: make build dir
       run: md build
+    - uses: Trass3r/setup-cpp@master
     - name: configure
       run: 'cd build; cmake .. -DCMAKE_TOOLCHAIN_FILE="$Env:VCPKG_INSTALLATION_ROOT/scripts/buildsystems/vcpkg.cmake" -DVCPKG_TARGET_TRIPLET=x64-windows -G "Visual Studio 16 2019" -DCMAKE_PLATFORM_ARCH=x64 -DRX_TEST=ON; cd ..'
     - name: build
