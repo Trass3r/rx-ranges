@@ -54,6 +54,10 @@
 #define RX_UNLIKELY(cond) bool(cond)
 #endif
 
+static void unusedfunction()
+{
+	
+}
 
 /*!
     @brief rx::ranges library
