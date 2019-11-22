@@ -58,7 +58,12 @@ static void unusedfunction()
 {
 	
 }
+#if __GNUC__
+#define DO_PRAGMA(x) _Pragma (#x)
+#define TODO(x) DO_PRAGMA(message ("TODO - " #x))
 
+TODO(Remember to fix this)
+#endif
 /*!
     @brief rx::ranges library
 
