@@ -55,8 +55,7 @@
 #endif
 
 static void unusedfunction()
-{
-	
+{	
 }
 #if __GNUC__
 #define DO_PRAGMA(x) _Pragma (#x)
